@@ -11,9 +11,18 @@ const API_KEY = process.env.API_KEY;
 const app = express();
 
 //Function that fetches SECOP Data
-const ayer = new Date();
-ayer.setDate(ayer.getDate() - 1);
+const hoy = new Date();
+const ayer = new Date(hoy);
 
+const diaSemana = hoy.getDay(); // 0 = Sunday, 1 = Monday, 2 = Tuesday, ..., 6 = Saturday
+
+if (diaSemana === 1) {
+  // If today is Monday, go back 3 days to get last Friday
+  ayer.setDate(hoy.getDate() - 3);
+} else {
+  // Otherwise, just go back 1 day
+  ayer.setDate(hoy.getDate() - 1);
+}
 const yyyy = ayer.getFullYear();
 const mm = String(ayer.getMonth() + 1).padStart(2, '0');
 const dd = String(ayer.getDate()).padStart(2, '0');
