@@ -14,8 +14,8 @@ const app = express();
 const filtrosBase = [
   `adjudicado = 'No'`,                                    // Not awarded yet
   `precio_base > 500000000`,                              // Base price > 500M COP
-  `modalidad_de_contratacion != 'Contratación directa'`,  // Not direct contracting
-  `codigo_principal_de_categoria LIKE '%811015%'`         // Category code for design services
+  `modalidad_de_contratacion != 'Contratación directa'`//,  // Not direct contracting
+  //`codigo_principal_de_categoria LIKE '%811015%'`         // Category code for design services
 ];
 
 // Reduced field set for AI analysis
@@ -147,7 +147,7 @@ containing information about contracting processes extracted from SECOP.
 
 Evaluate each process and tell us which ones are relevant for Double C Designs, 
 a company specialized in building and infrastructure design.
-Please note, this is design only, not construction.
+Please note, this is design only, not construction. This is extremely important
 
 Respond in JSON format indicating the process ID (if available), followed by 
 the description, url, price, entity and justification. If there are no 
