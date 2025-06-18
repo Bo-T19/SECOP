@@ -14,8 +14,8 @@ const app = express();
 const filtrosBase = [
   `adjudicado = 'No'`,                                    // Not awarded yet
   `precio_base > 500000000`,                              // Base price > 500M COP
-  `modalidad_de_contratacion != 'Contratación directa'`//,  // Not direct contracting
-  //`codigo_principal_de_categoria LIKE '%811015%'`         // Category code for design services
+  `modalidad_de_contratacion != 'Contratación directa'`,  // Not direct contracting
+  `codigo_principal_de_categoria LIKE '%811015%'`         // Category code for design services
 ];
 
 // Reduced field set for AI analysis
